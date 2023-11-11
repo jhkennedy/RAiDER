@@ -55,6 +55,16 @@ jobs:
             eval "$($HOME/bin/micromamba shell hook -s posix)"
             micromamba activate RAiDER
 
+            export RAIDER_ECMWF_ERA5_UID=$(echo ${cdsak} | cut -d ":" -f 1)
+            export RAIDER_ECMWF_ERA5_API_KEY=$(echo ${cdsak} | cut -d ":" -f 2)
+            export RAIDER_HRES_URL="https://api.ecmwf.int/v1"
+            export RAIDER_HRES_EMAIL=${ecmwfu}
+            export RAIDER_HRES_API_KEY=${ecmwfk}
+            export EARTHDATA_USERNAME="foo"
+            export EARTHDATA_PASSWORD="bar"
+            export ESA_CDSE_USERNAME="fizz"
+            export ESA_CDSE_PASSWORD="buzz"
+
             python -c 'from RAiDER.models.credentials import setup_from_env; setup_from_env()'
 
       - run:
