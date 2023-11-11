@@ -33,7 +33,7 @@ jobs:
             micromamba create -f environment.yml
 
       - run:
-          name: Install raider and Check environment
+          name: Install raider and check environment
           shell: /bin/bash -l
           command: |
             eval "$(${HOME}/bin/micromamba shell hook -s posix)"
@@ -65,6 +65,16 @@ jobs:
             export ESA_CDSE_USERNAME="fizz"
             export ESA_CDSE_PASSWORD="buzz"
 
+            echo ${RAIDER_ECMWF_ERA5_UID}
+            echo ${RAIDER_ECMWF_ERA5_API_KEY}
+            echo ${RAIDER_HRES_URL}
+            echo ${RAIDER_HRES_EMAIL}
+            echo ${RAIDER_HRES_API_KEY}
+            echo ${EARTHDATA_USERNAME}
+            echo ${EARTHDATA_PASSWORD}
+            echo ${ESA_CDSE_USERNAME}
+            echo ${ESA_CDSE_PASSWORD}
+            
             python -c 'from RAiDER.models.credentials import setup_from_env; setup_from_env()'
 
       - run:
