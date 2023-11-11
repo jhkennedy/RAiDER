@@ -55,10 +55,6 @@ jobs:
             eval "$(${HOME}/bin/micromamba shell hook -s posix)"
             micromamba activate RAiDER
 
-            export RAIDER_HRES_URL="https://api.ecmwf.int/v1"
-            export ESA_CDSE_USERNAME="fizz"
-            export ESA_CDSE_PASSWORD="buzz"
-
             echo ${RAIDER_ECMWF_ERA5_UID}
             echo ${RAIDER_ECMWF_ERA5_API_KEY}
             echo ${RAIDER_HRES_URL}
